@@ -16,7 +16,8 @@ app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 
-mongoose.connect("mongodb+srv://"+process.env.DB_login.toString()+"@cluster0-ujxvv.mongodb.net/todolistDB", { useNewUrlParser: true });
+const dbLogin = "" + process.env.DB_login;
+mongoose.connect("mongodb+srv://"+dbLogin.toString()+"@cluster0-ujxvv.mongodb.net/usersDB", { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);
 app.use(session({
   secret: "secret",
